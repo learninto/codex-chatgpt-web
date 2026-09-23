@@ -12,7 +12,7 @@ export const CHATGPT_WEB_RELAY_MODEL_ROUTE = {
   modelFamily: "5.6",
   codexEffort: "high",
   adapterEffort: "high",
-  supportedCodexEfforts: ["low", "medium", "high", "xhigh"],
+  supportedCodexEfforts: ["medium", "high", "xhigh"],
   requiresPro: false,
 } as unknown as legacy.ChatGptWebAutomaticModelRoute;
 
@@ -27,8 +27,8 @@ function relayEffort(
 ): legacy.ChatGptWebAutomaticModelRoute {
   const effort = reasoning ?? "high";
   const allowed = capabilities.extraHighAvailable === true
-    ? ["low", "medium", "high", "xhigh"]
-    : ["low", "medium", "high"];
+    ? ["medium", "high", "xhigh"]
+    : ["medium", "high"];
   if (!allowed.includes(effort)) {
     throw new Error(`${CHATGPT_WEB_RELAY_MODEL_ROUTE.displayName} does not support effort ${JSON.stringify(effort)} for this account`);
   }
