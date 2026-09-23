@@ -31,7 +31,27 @@ replace_once(
     '    expect(spawnOverrides).toEqual([\n      "gpt-5.6-sol",\n      ...CHATGPT_WEB_MODEL_ROUTES.slice(1).map(route => route.slug),\n    ]);\n',
 )
 replace_once(
+    "tests/model-catalog.test.ts",
+    '    expect(web.map(model => model.slug)).toEqual([\n      "chatgpt-web/gpt-5.6-sol-instant",\n      "chatgpt-web/gpt-5.6-sol",\n      "chatgpt-web/light",\n      "chatgpt-web/medium",\n      "chatgpt-web/high",\n      "chatgpt-web/extra-high",\n    ]);\n',
+    '    expect(web.map(model => model.slug)).toEqual([\n      "chatgpt-web/gpt-5.6-sol-instant",\n      "chatgpt-web/gpt-5.6-sol",\n      "chatgpt-web/light",\n      "chatgpt-web/medium",\n      "chatgpt-web/high",\n      "chatgpt-web/extra-high",\n      "chatgpt-web/relay",\n    ]);\n',
+)
+replace_once(
+    "tests/model-catalog.test.ts",
+    '    expect(web.length).toBe(5);\n',
+    '    expect(web.length).toBe(6);\n',
+)
+replace_once(
+    "tests/model-catalog.test.ts",
+    '    expect(web).toHaveLength(5);\n',
+    '    expect(web).toHaveLength(6);\n',
+)
+replace_once(
     "tests/server-models.test.ts",
     '    "chatgpt-web/pro",\n  ]);\n',
     '    "chatgpt-web/pro",\n    "chatgpt-web/relay",\n  ]);\n',
+)
+replace_once(
+    "tests/server-models.test.ts",
+    '  expect(body.models.filter(model => model.slug.startsWith("chatgpt-web/")))\n    .toHaveLength(5);\n',
+    '  expect(body.models.filter(model => model.slug.startsWith("chatgpt-web/")))\n    .toHaveLength(6);\n',
 )
