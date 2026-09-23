@@ -1,0 +1,22 @@
+name: Relay CI
+
+on:
+  push:
+    branches: [zero-risk-relay]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.0
+      - run: bun install --frozen-lockfile
+      - run: bun run typecheck
+      - run: bun test ./tests/chatgpt-web-models.test.ts ./tests/model-catalog.test.ts ./tests/server-models.test.ts
+      - run: bun test ./tests
