@@ -32,8 +32,13 @@ replace_once(
 )
 replace_once(
     "tests/model-catalog.test.ts",
-    '    expect(web.map(model => model.slug)).toEqual([\n      "chatgpt-web/gpt-5.6-sol-instant",\n      "chatgpt-web/gpt-5.6-sol",\n      "chatgpt-web/light",\n      "chatgpt-web/medium",\n      "chatgpt-web/high",\n      "chatgpt-web/extra-high",\n    ]);\n',
-    '    expect(web.map(model => model.slug)).toEqual([\n      "chatgpt-web/gpt-5.6-sol-instant",\n      "chatgpt-web/gpt-5.6-sol",\n      "chatgpt-web/light",\n      "chatgpt-web/medium",\n      "chatgpt-web/high",\n      "chatgpt-web/extra-high",\n      "chatgpt-web/relay",\n    ]);\n',
+    '    expect(web.map(model => model.slug)).toEqual([\n      "chatgpt-web/gpt-5.6-sol-instant", "chatgpt-web/gpt-5.6-sol",\n      "chatgpt-web/light", "chatgpt-web/medium", "chatgpt-web/high", "chatgpt-web/extra-high",\n    ]);\n',
+    '    expect(web.map(model => model.slug)).toEqual([\n      "chatgpt-web/gpt-5.6-sol-instant", "chatgpt-web/gpt-5.6-sol",\n      "chatgpt-web/light", "chatgpt-web/medium", "chatgpt-web/high", "chatgpt-web/extra-high",\n      "chatgpt-web/relay",\n    ]);\n',
+)
+replace_once(
+    "tests/model-catalog.test.ts",
+    '      { contextWindow: 90_000, effectiveContextWindowPercent: 89, autoCompactTokenLimit: 80_000 },\n      { contextWindow: 90_000, effectiveContextWindowPercent: 89, autoCompactTokenLimit: 80_000 },\n    ]);\n  });\n\n  test("publishes Luna and Think routes when the account exposes no Sol selector", () => {\n',
+    '      { contextWindow: 90_000, effectiveContextWindowPercent: 89, autoCompactTokenLimit: 80_000 },\n      { contextWindow: 90_000, effectiveContextWindowPercent: 89, autoCompactTokenLimit: 80_000 },\n      { contextWindow: 90_000, effectiveContextWindowPercent: 89, autoCompactTokenLimit: 80_000 },\n    ]);\n  });\n\n  test("publishes Luna and Think routes when the account exposes no Sol selector", () => {\n',
 )
 replace_once(
     "tests/model-catalog.test.ts",
